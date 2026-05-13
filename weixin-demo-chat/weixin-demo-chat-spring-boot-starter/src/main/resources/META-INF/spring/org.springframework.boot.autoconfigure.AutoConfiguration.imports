@@ -1,0 +1,3 @@
+# WxChat Spring Boot Auto Configuration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.binarywang.spring.starter.wxjava.chat.config.WxChatAutoConfiguration

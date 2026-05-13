@@ -1,0 +1,57 @@
+# ============================================================
+# 微信聊天示例应用配置
+# ============================================================
+# 复制此文件为 application.yml 并修改配置后运行
+# ============================================================
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: wx-chat-demo
+
+# 微信聊天配置
+wx:
+  chat:
+    enabled: true
+    # 请替换为你的微信Channel配置
+    app-id: your_app_id
+    app-secret: your_app_secret
+
+    # 自动回复配置（支持多个关键字回复）
+    auto-replies:
+      - keyword: "你好"
+        reply: "你好！很高兴见到你！有什么可以帮助的吗？"
+        fuzzy-match: false
+      - keyword: "帮助"
+        reply: |
+          欢迎使用微信聊天机器人！
+          发送以下指令获取帮助：
+          1. 你好 - 打招呼
+          2. 帮助 - 显示此帮助信息
+          3. 天气 - 查询天气
+          4. 时间 - 获取当前时间
+        fuzzy-match: false
+      - keyword: "天气"
+        reply: "今日天气晴朗，温度20-28°C，适合出行！"
+        fuzzy-match: true
+      - keyword: "时间"
+        reply: "当前时间请查看系统时间~"
+        fuzzy-match: true
+
+    # 群欢迎消息配置
+    welcome-messages:
+      - room-wxid: "family_group@chatroom"
+        message: "欢迎家人加入群聊！🎉 请自我介绍一下~"
+      - room-wxid: "work_group@chatroom"
+        message: "欢迎新同事加入！请修改群昵称为姓名+部门，并做个简单的自我介绍。"
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    me.chanjar.weixin: DEBUG
+    com.binarywang: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

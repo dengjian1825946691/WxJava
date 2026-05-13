@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.github.binarywang</groupId>
+    <artifactId>wx-java</artifactId>
+    <version>4.8.3.B</version>
+  </parent>
+
+  <artifactId>weixin-demo-chat</artifactId>
+  <packaging>pom</packaging>
+  <name>WxJava - Chat Demo</name>
+  <description>微信聊天示例项目 - 消息推送与自动回复</description>
+
+  <properties>
+    <spring.boot.version>2.5.15</spring.boot.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+        <version>${spring.boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-autoconfigure</artifactId>
+        <version>${spring.boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+        <version>${spring.boot.version}</version>
+        <optional>true</optional>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <modules>
+    <module>weixin-demo-chat-core</module>
+    <module>weixin-demo-chat-spring-boot-starter</module>
+  </modules>
+
+</project>
